@@ -11,6 +11,8 @@ jobs:
         runs-on: ubuntu-latest
         container: node:22
         steps:
+            - uses: actions/checkout@v4
+
             - run: npm i
             - run: npm run lint
             - run: npm run format
@@ -19,6 +21,8 @@ jobs:
         runs-on: ubuntu-latest
         container: mcr.microsoft.com/playwright:v1.49.1-jammy
         steps:
+            - uses: actions/checkout@v4
+
             - run: npm i
             - run: npm run test:coverage
 
