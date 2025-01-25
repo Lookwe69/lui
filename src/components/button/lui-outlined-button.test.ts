@@ -3,7 +3,6 @@ import './lui-outlined-button';
 import { expect, fixture, html } from '@open-wc/testing';
 
 import { createTokenTests } from '../../testing/tokens';
-
 import { LuiOutlinedButton } from './lui-outlined-button';
 
 describe('<lui-outlined-button>', () => {

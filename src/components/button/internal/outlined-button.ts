@@ -1,6 +1,5 @@
 import { Button } from './button';
 
-
 declare global {
 	interface HTMLElementEventMap {}
 }

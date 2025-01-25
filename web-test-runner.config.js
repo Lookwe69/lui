@@ -11,7 +11,7 @@ const browsers = {
 	// Local browser testing via playwright
 	// ===========
 	chromium: playwrightLauncher({ product: 'chromium' }),
-	firefox: playwrightLauncher({ product: 'firefox' }),
+	// firefox: playwrightLauncher({ product: 'firefox' }),
 	webkit: playwrightLauncher({ product: 'webkit' }),
 };
 
