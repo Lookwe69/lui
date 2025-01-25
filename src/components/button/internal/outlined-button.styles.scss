@@ -1,0 +1,51 @@
+@use './outlined-button.tokens.scss' as tokens;
+@forward './button.styles.scss';
+
+:host {
+	--_color: #{tokens.var(text-color)};
+	--_hover-color: #{tokens.var(hover-text-color)};
+	--_focus-color: #{tokens.var(focus-text-color)};
+	--_active-color: #{tokens.var(active-text-color)};
+
+	--_bg-color: transparent;
+	--_hover-bg-color: #{tokens.var(hover-bg-color)};
+	--_focus-bg-color: #{tokens.var(focus-bg-color)};
+	--_active-bg-color: #{tokens.var(active-bg-color)};
+
+	--_border-width: #{tokens.var(border-width)};
+	--_border-color: #{tokens.var(border-color)};
+	--_hover-border-color: #{tokens.var(hover-border-color)};
+	--_focus-border-color: #{tokens.var(focus-border-color)};
+	--_active-border-color: #{tokens.var(active-border-color)};
+	--_disabled-border-color: var(--_disabled-bg-color);
+
+	--_current-border-color: var(--_border-color);
+}
+
+.button {
+	&::after {
+		position: absolute;
+		transition-duration: var(--_transition);
+		transition-property: border-color;
+		inset: 0;
+		border: var(--_border-width) solid var(--_current-border-color);
+		border-radius: inherit;
+		content: '';
+	}
+
+	&.disabled {
+		--_current-border-color: var(--_disabled-border-color);
+	}
+}
+
+:host(:focus-within) {
+	--_current-border-color: var(--_focus-border-color);
+}
+
+:host(:hover) {
+	--_current-border-color: var(--_hover-border-color);
+}
+
+:host(:active) {
+	--_current-border-color: var(--_active-border-color);
+}

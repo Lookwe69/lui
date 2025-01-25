@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '../../../tokens/component.scss';
+
+$tag: 'outlined-button';
+
+$tokens-to-sys: (
+	'disabled-opacity': '',
+
+	'text-color': 'color-primary-700',
+	'hover-text-color': 'color-primary-700',
+	'focus-text-color': 'color-primary-700',
+	'active-text-color': 'color-primary-700',
+
+	'hover-bg-color': 'color-primary-50',
+	'focus-bg-color': 'color-primary-50',
+	'active-bg-color': 'color-primary-100',
+
+	'border-width': '',
+	'border-color': 'color-primary-700',
+	'hover-border-color': 'color-primary-700',
+	'focus-border-color': 'color-primary-700',
+	'active-border-color': 'color-primary-700',
+);
+
+$tokens-default: (
+	'disabled-opacity': 0.8,
+
+	'border-width': 1px,
+);
+
+@function var($token) {
+	$default: map.get($tokens-default, $token);
+	@if not $default {
+		$default: '';
+	}
+	@return component.get($tag, $token, map.get($tokens-to-sys, $token), $default);
+}
