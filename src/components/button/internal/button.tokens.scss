@@ -1,0 +1,58 @@
+@use 'sass:map';
+@use '../../../tokens/component.scss';
+
+$tag: 'button';
+
+$tokens-to-sys: (
+	'gap': 'spacing-small',
+
+	'font-weight': '',
+	'font-size': 'font-size-small',
+	'font-family': '',
+	'line-height': 'line-height-large',
+	'letter-spacing': 'letter-spacing-medium',
+
+	'disabled-opacity': '',
+
+	'text-color': 'color-basic-white',
+	'hover-text-color': 'color-basic-white',
+	'focus-text-color': 'color-basic-white',
+	'active-text-color': 'color-basic-white',
+	'disabled-text-color': 'color-neutral-500',
+
+	'bg-color': 'color-primary-600',
+	'hover-bg-color': 'color-primary-500',
+	'focus-bg-color': 'color-primary-600',
+	'active-bg-color': 'color-primary-700',
+	'disabled-bg-color': 'color-neutral-100',
+
+	'transition': 'transition-medium',
+
+	'focus-ring': 'focus-ring',
+	'focus-ring-offset': 'focus-ring-offset',
+
+	'border-radius': 'border-radius-medium',
+
+	'padding-small': '',
+	'padding-medium': '',
+	'padding-large': '',
+);
+
+$tokens-default: (
+	'font-weight': 700,
+	'font-family': inherit,
+
+	'disabled-opacity': 0.8,
+
+	'padding-small': 6px 22px,
+	'padding-medium': 10px 22px,
+	'padding-large': 14px 22px,
+);
+
+@function var($token) {
+	$default: map.get($tokens-default, $token);
+	@if not $default {
+		$default: '';
+	}
+	@return component.get($tag, $token, map.get($tokens-to-sys, $token), $default);
+}

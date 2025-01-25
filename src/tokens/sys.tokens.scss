@@ -1,0 +1,125 @@
+@use 'sass:list';
+@use 'sass:map';
+
+$sys-tokens: (
+	//palette
+	'color-neutral-50': #f5f6fb,
+	'color-neutral-100': #e4e5f2,
+	'color-neutral-200': #d4d7e6,
+	'color-neutral-300': #c4c7d6,
+	'color-neutral-400': #abafc6,
+	'color-neutral-500': #9294a0,
+	'color-neutral-600': #767881,
+	'color-neutral-700': #4f525e,
+	'color-neutral-800': #363740,
+	'color-neutral-900': #363740,
+
+	'color-primary-50': #efe5fd,
+	'color-primary-100': #d4bff9,
+	'color-primary-200': #b794f6,
+	'color-primary-300': #9965f4,
+	'color-primary-400': #7e3ff2,
+	'color-primary-500': #6002ee,
+	'color-primary-600': #5300e8,
+	'color-primary-700': #5300e8,
+	'color-primary-800': #1d00db,
+	'color-primary-900': #0000d6,
+
+	'color-secondary-50': #f2fde4,
+	'color-secondary-100': #defabb,
+	'color-secondary-200': #c6f68d,
+	'color-secondary-300': #aaf255,
+	'color-secondary-400': #90ee02,
+	'color-secondary-500': #75e900,
+	'color-secondary-600': #61d800,
+	'color-secondary-700': #41c300,
+	'color-secondary-800': #0aaf00,
+	'color-secondary-900': #008b00,
+
+	'color-green-100': #d0ffa5,
+	'color-green-200': #baff7b,
+	'color-green-300': #9beb51,
+	'color-green-400': #84cd41,
+	'color-green-600': #60a223,
+	'color-green-800': #498115,
+
+	'color-blue-50': #f3f4fa,
+	'color-blue-200': #d1d8ff,
+	'color-blue-300': #bbc5fd,
+	'color-blue-400': #a6b2f9,
+	'color-blue-600': #5067ef,
+
+	'color-red-50': #ffe7e7,
+	'color-red-100': #ffc9c9,
+	'color-red-200': #ffb1b1,
+	'color-red-300': #f48b8b,
+	'color-red-400': #ff7373,
+	'color-red-500': #fc6868,
+	'color-red-600': #fc5757,
+	'color-red-700': #f24848,
+	'color-red-800': #d33737,
+	'color-red-900': #b42828,
+
+	'color-orange-50': #fff5ed,
+	'color-orange-100': #ffe8d4,
+	'color-orange-200': #ffcda8,
+	'color-orange-300': #ffaa70,
+	'color-orange-400': #f77c4c,
+	'color-orange-500': #ee6631,
+	'color-orange-600': #e3531b,
+	'color-orange-700': #d24d19,
+	'color-orange-800': #b84214,
+	'color-orange-900': #953611,
+
+	'color-grey-50': #e1f2f6,
+	'color-grey-400': #c3e2e9,
+	'color-grey-500': #b5d7de,
+	'color-grey-700': #a3c7ce,
+	'color-grey-800': #89aeb6,
+
+	'color-basic-white': #ffffff,
+	'color-basic-black': #000000,
+
+	//typographie
+	'font-size-x-small': 0.75rem,
+	'font-size-small': 0.875rem,
+	'font-size-medium': 1rem,
+	'font-size-large': 1.125rem,
+	'font-size-header': 2.125rem,
+
+	'line-height-small': 1,
+	'line-height-medium': 1.2,
+	'line-height-large': 1.5,
+
+	'letter-spacing-normal': normal,
+	'letter-spacing-medium': 0.02857em,
+
+	//border
+	'border-radius-x-small': 4px,
+	'border-radius-small': 6px,
+	'border-radius-medium': 8px,
+	'border-radius-large': 14px,
+	'border-radius-x-large': 20px,
+
+	//spacing
+	'spacing-x-small': 5px,
+	'spacing-small': 8px,
+	'spacing-medium': 15px,
+
+	//focus
+	'focus-ring': 2px solid #5067ef,
+	'focus-ring-offset': 2px,
+	'focus-ring-offset-inner': -2px,
+
+	//transitions
+	'transition-medium': 0.3s,
+	'transition-fast': 0.1s
+);
+
+@function get($sys-token, $default: '') {
+	@if $default == '' {
+		$default: map.get($sys-tokens, $sys-token);
+	}
+
+	@return var(#{'--lui-sys-' + $sys-token}, #{$default});
+}

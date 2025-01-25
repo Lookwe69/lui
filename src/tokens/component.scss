@@ -1,0 +1,9 @@
+@use './sys.tokens.scss' as sys-tokens;
+
+@function get($suffix-token, $component-token, $sys-token: '', $default: '') {
+	$var-component: '--lui-' + $suffix-token + '-' + $component-token;
+	@if $sys-token != '' {
+		$default: sys-tokens.get($sys-token, $default);
+	}
+	@return var(#{$var-component}, #{$default});
+}

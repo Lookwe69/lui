@@ -1,0 +1,130 @@
+@use './button.tokens.scss' as tokens;
+
+:host {
+	--_gap: #{tokens.var(gap)};
+	--_font-weight: #{tokens.var(font-weight)};
+	--_font-size: #{tokens.var(font-size)};
+	--_font-family: #{tokens.var(font-family)};
+	--_line-height: #{tokens.var(line-height)};
+	--_letter-spacing: #{tokens.var(letter-spacing)};
+
+	--_disabled-opacity: #{tokens.var(disabled-opacity)};
+
+	--_color: #{tokens.var(text-color)};
+	--_hover-color: #{tokens.var(hover-text-color)};
+	--_focus-color: #{tokens.var(focus-text-color)};
+	--_active-color: #{tokens.var(active-text-color)};
+	--_disabled-color: #{tokens.var(disabled-text-color)};
+
+	--_bg-color: #{tokens.var(bg-color)};
+	--_hover-bg-color: #{tokens.var(hover-bg-color)};
+	--_focus-bg-color: #{tokens.var(focus-bg-color)};
+	--_active-bg-color: #{tokens.var(active-bg-color)};
+	--_disabled-bg-color: #{tokens.var(disabled-bg-color)};
+
+	--_transition: #{tokens.var(transition)};
+	--_focus-ring: #{tokens.var(focus-ring)};
+	--_focus-ring-offset: #{tokens.var(focus-ring-offset)};
+
+	--_border-radius: #{tokens.var(border-radius)};
+
+	--_padding-small: #{tokens.var(padding-small)};
+	--_padding-medium: #{tokens.var(padding-medium)};
+	--_padding-large: #{tokens.var(padding-large)};
+
+	--_current-color: var(--_color);
+	--_current-bg-color: var(--_bg-color);
+	--_current-padding: var(--_padding-medium);
+}
+
+:host {
+	display: inline flex;
+	place-content: center;
+	place-items: center;
+	gap: var(--_gap);
+	border-radius: var(--_border-radius);
+	color: var(--_current-color);
+	font-weight: var(--_font-weight);
+	font-size: var(--_font-size);
+	line-height: var(--_line-height);
+	font-family: var(--_font-family);
+	letter-spacing: var(--_letter-spacing);
+	user-select: none;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+}
+
+.button {
+	display: inline flex;
+	position: relative;
+	flex: 1;
+	place-content: center;
+	place-items: center;
+	gap: inherit;
+	appearance: none;
+	transition-duration: var(--_transition);
+	transition-property: color, background-color;
+	cursor: pointer;
+	box-sizing: border-box;
+	border: 0;
+	border-radius: inherit;
+	background: transparent;
+	background-color: var(--_current-bg-color);
+	padding: 0;
+	padding: var(--_current-padding);
+	width: 100%;
+	height: 100%;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-decoration: none;
+	text-transform: inherit;
+
+	&:focus-visible {
+		z-index: 1;
+		outline: var(--_focus-ring);
+		outline-offset: var(--_focus-ring-offset);
+	}
+
+	&.disabled {
+		cursor: default;
+		pointer-events: none;
+	}
+
+	&.disabled {
+		opacity: var(--_disabled-opacity);
+		background-color: var(--_disabled-bg-color);
+		color: var(--_disabled-color);
+	}
+}
+
+.label {
+	overflow: hidden;
+}
+
+:host(:focus-within) {
+	--_current-color: var(--_focus-color);
+	--_current-bg-color: var(--_focus-bg-color);
+}
+
+:host(:hover) {
+	--_current-color: var(--_hover-color);
+	--_current-bg-color: var(--_hover-bg-color);
+}
+
+:host(:active) {
+	--_current-color: var(--_active-color);
+	--_current-bg-color: var(--_active-bg-color);
+}
+
+.size-small {
+	--_current-padding: var(--_padding-small);
+}
+
+.size-medium {
+	--_current-padding: var(--_padding-medium);
+}
+
+.size-large {
+	--_current-padding: var(--_padding-large);
+}
