@@ -14,15 +14,7 @@ module.exports = {
 	cssDeclarationSorterKeepOverrides: false,
 
 	/* prettier-plugin-sort-imports */
-	importOrder: [
-		'^lit',
-		'^@lit/(.*)$',
-		'^@lit-labs/(.*)$',
-		'',
-		'<THIRD_PARTY_MODULES>',
-		'',
-		'^[./]',
-	],
+	importOrder: ['^lit', '^@lit/(.*)$', '^@lit-labs/(.*)$', '', '<THIRD_PARTY_MODULES>', '', '^[./]'],
 	importOrderParserPlugins: ['typescript', 'decorators', 'decoratorAutoAccessors', 'importAttributes'],
 	importOrderTypeScriptVersion: '5.7.3',
 
