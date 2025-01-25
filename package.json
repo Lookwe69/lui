@@ -22,7 +22,8 @@
 		"test:prod:watch": "npm run build && MODE=prod wtr --watch",
 		"test:coverage": "npm run test -- --coverage",
 		"create": "plop --plopfile scripts/plop/create.js",
-		"create-variant": "plop --plopfile scripts/plop/create-variant.js"
+		"create-variant": "plop --plopfile scripts/plop/create-variant.js",
+		"make-metadata": "node ./scripts/make-metadata.js --outdir dist"
 	},
 	"keywords": [
 		"lui",
@@ -37,6 +38,7 @@
 		"tslib": "^2.8.0"
 	},
 	"devDependencies": {
+		"@custom-elements-manifest/analyzer": "^0.10.4",
 		"@homer0/prettier-plugin-jsdoc": "^9.1.0",
 		"@ianvs/prettier-plugin-sort-imports": "^4.4.1",
 		"@literals/rollup-plugin-html-css-minifier": "^3.0.1",
@@ -50,6 +52,8 @@
 		"@web/test-runner": "^0.17.3",
 		"@web/test-runner-commands": "^0.9.0",
 		"@web/test-runner-playwright": "^0.11.0",
+		"custom-element-jet-brains-integration": "^1.7.0",
+		"custom-element-vs-code-integration": "^1.5.0",
 		"eslint": "^9.18.0",
 		"globals": "^15.14.0",
 		"lit-analyzer": "^2.0.3",
