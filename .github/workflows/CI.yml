@@ -22,6 +22,8 @@ jobs:
         container: mcr.microsoft.com/playwright:v1.50.0-jammy
         env:
             HOME: /root
+        permissions:
+            pull-requests: write
         steps:
             - uses: actions/checkout@v4
 
