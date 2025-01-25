@@ -1,0 +1,30 @@
+import { customElement } from 'lit/decorators.js';
+
+import { elementUpdated, expect, fixture, html } from '@open-wc/testing';
+import sinon from 'sinon';
+
+import { {{ pascalCaseTagWithoutPrefix tag }} } from './{{ tagWithoutPrefix tag }}';
+
+@customElement('test-{{ tagWithoutPrefix tag }}')
+class Test{{ pascalCaseTagWithoutPrefix tag }} extends {{ pascalCaseTagWithoutPrefix tag }} {}
+
+describe('{{ pascalCaseTagWithoutPrefix tag }}', () => {
+	async function setupTest() {
+		const {{ camelCaseTagWithoutPrefix tag }} = await fixture<Test{{ pascalCaseTagWithoutPrefix tag }}>(html`<test-{{ tagWithoutPrefix tag }}></test-{{ tagWithoutPrefix tag }}>`);
+		return { {{ camelCaseTagWithoutPrefix tag }} };
+	}
+
+	// it('should be clickable', async () => {
+	// 	// Arrange
+	// 	const clickListener = sinon.fake();
+	// 	const { {{ camelCaseTagWithoutPrefix tag }} } = await setupTest();
+	// 	{{ camelCaseTagWithoutPrefix tag }}.addEventListener('click', clickListener);
+	// 	await elementUpdated({{ camelCaseTagWithoutPrefix tag }});
+
+	// 	// Act
+	// 	{{ camelCaseTagWithoutPrefix tag }}.click();
+
+	// 	// Assert
+	// 	expect(clickListener).calledOnceWith(sinon.match.instanceOf(MouseEvent));
+	// });
+});

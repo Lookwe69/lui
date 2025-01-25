@@ -1,0 +1,22 @@
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+
+import { LuiElement } from '../../../internal/lui-element';
+
+declare global {
+	interface HTMLElementEventMap {}
+}
+
+const BaseClass = LuiElement;
+
+export class {{ pascalCaseTagWithoutPrefix tag }} extends BaseClass {
+	/**
+	 * Example attribute.
+	 */
+	@property()
+	accessor attr = 'example';
+
+	override render() {
+		return html`<slot></slot>`;
+	}
+}

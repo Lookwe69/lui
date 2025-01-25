@@ -1,0 +1,8 @@
+import { {{ baseClass }} } from './{{ kebabCase baseClass }}';
+
+
+declare global {
+	interface HTMLElementEventMap {}
+}
+
+export class {{ pascalCaseTagWithoutPrefix tag }} extends {{ baseClass }} {}

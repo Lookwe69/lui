@@ -1,0 +1,15 @@
+import { CSSResultOrNative } from 'lit';
+
+import { {{ pascalCaseTagWithoutPrefix tag }} } from './internal/{{ tagWithoutPrefix tag }}';
+import styles from './internal/{{ tagWithoutPrefix tag }}.styles.scss';
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'{{ tag }}': {{ pascalCase tag }};
+	}
+}
+
+export class {{ pascalCase tag }} extends {{ pascalCaseTagWithoutPrefix tag }} {
+	static override styles: CSSResultOrNative[] = [...super.styles, styles];
+}
+customElements.define('{{ tag }}', {{ pascalCase tag }});

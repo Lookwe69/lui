@@ -20,7 +20,9 @@
 		"test:dev:watch": "npm run build && wtr --watch",
 		"test:prod": "MODE=prod wtr",
 		"test:prod:watch": "npm run build && MODE=prod wtr --watch",
-		"test:coverage": "npm run test -- --coverage"
+		"test:coverage": "npm run test -- --coverage",
+		"create": "plop --plopfile scripts/plop/create.js",
+		"create-variant": "plop --plopfile scripts/plop/create-variant.js"
 	},
 	"keywords": [
 		"lui",
@@ -51,6 +53,7 @@
 		"eslint": "^9.18.0",
 		"globals": "^15.14.0",
 		"lit-analyzer": "^2.0.3",
+		"plop": "^4.0.1",
 		"postcss": "^8.5.1",
 		"prettier": "^3.4.2",
 		"prettier-plugin-css-order": "^2.1.2",
