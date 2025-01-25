@@ -8,13 +8,14 @@ import { LuiElement } from '../../../internal/lui-element';
 import { getFocusElement, mixinDelegatesFocus } from '../../../internal/mixin/delegate-focus';
 import { mixinElementInternals } from '../../../internal/mixin/element-internals';
 import { getFormValue, mixinFormAssociated } from '../../../internal/mixin/form-associated';
+import { mixinPopoverTarget } from '../../../internal/mixin/popover-target';
 import { FormSubmitterController } from './controller/form-submitter-controller';
 
 declare global {
 	interface HTMLElementEventMap {}
 }
 
-const BaseClass = mixinDelegatesFocus(mixinFormAssociated(mixinElementInternals(LuiElement)));
+const BaseClass = mixinPopoverTarget(mixinDelegatesFocus(mixinFormAssociated(mixinElementInternals(LuiElement))));
 
 export class Button extends BaseClass {
 	/**
@@ -93,7 +94,14 @@ export class Button extends BaseClass {
 
 	#renderButton() {
 		return html`
-			<button part="base" class=${classMap(this.#classButton())} type=${this.type} ?disabled=${!this.#canClick}>
+			<button
+				part="base"
+				class=${classMap(this.#classButton())}
+				type=${this.type}
+				?disabled=${!this.#canClick}
+				.popoverTargetElement=${this.popoverTargetElement}
+				.popoverTargetAction=${this.popoverTargetAction}
+			>
 				${this.#renderContent()}
 			</button>
 		`;
