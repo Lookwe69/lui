@@ -19,7 +19,7 @@ jobs:
 
     playwright:
         runs-on: ubuntu-latest
-        container: mcr.microsoft.com/playwright:v1.49.1-jammy
+        container: mcr.microsoft.com/playwright:v1.50.0-jammy
         steps:
             - uses: actions/checkout@v4
 
