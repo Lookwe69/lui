@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../../tokens/component.scss';
+
+$tag: 'divider';
+
+$tokens-to-sys: (
+	'width': '',
+	'color': 'color-neutral-200',
+	'spacing': 'spacing-small',
+);
+
+$tokens-default: (
+	'width': 1px,
+);
+
+@function var($token) {
+	$default: map.get($tokens-default, $token);
+	@if not $default {
+		$default: '';
+	}
+	@return component.get($tag, $token, map.get($tokens-to-sys, $token), $default);
+}

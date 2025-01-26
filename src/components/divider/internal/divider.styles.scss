@@ -1,0 +1,25 @@
+@use './divider.tokens.scss' as tokens;
+
+:host {
+	--_width: #{tokens.var(width)};
+	--_color: #{tokens.var(color)};
+	--_spacing: #{tokens.var(spacing)};
+}
+
+:host {
+	flex-shrink: 0;
+	border: 0px solid var(--_color);
+}
+
+:host(:not([vertical])) {
+	display: block;
+	margin: var(--_spacing) 0;
+	border-top-width: var(--_width);
+}
+
+:host([vertical]) {
+	display: inline block;
+	margin: 0 var(--_spacing);
+	border-left-width: var(--_width);
+	height: 100%;
+}
