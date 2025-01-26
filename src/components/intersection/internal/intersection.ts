@@ -2,10 +2,11 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { IntersectionController } from '@lit-labs/observers/intersection-controller.js';
 
-import { effect, EffectGroupController } from '../../../internal/controller/effect-group-controller';
-import { stringConverter } from '../../../internal/converter/string-converter';
+import { effect, EffectGroupController } from '@lookwe/lit-controllers';
+import { stringConverter } from '@lookwe/lit-converters';
+import { internals, mixinElementInternals } from '@lookwe/lit-mixins';
+
 import { LuiElement } from '../../../internal/lui-element';
-import { internals, mixinElementInternals } from '../../../internal/mixin/element-internals';
 import { IntersectionIntersectingChangeEvent } from '../event/intersection-intersecting-change-event';
 
 declare global {

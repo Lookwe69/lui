@@ -1,7 +1,7 @@
 import { ReactiveController, ReactiveControllerHost } from 'lit';
 
-import { internals, WithElementInternals } from '../../../../internal/mixin/element-internals';
-import { nextMacrotask } from '../../../../internal/utils/event-loop';
+import { internals, WithElementInternals } from '@lookwe/lit-mixins';
+import { nextMacrotask } from '@lookwe/utils';
 
 export interface FormSubmitterControllerHost extends HTMLElement, ReactiveControllerHost, WithElementInternals {
 	type: 'button' | 'reset' | 'submit';

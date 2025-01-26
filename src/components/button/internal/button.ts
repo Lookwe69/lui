@@ -2,13 +2,18 @@ import { html, nothing } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
-import { stringConverter } from '../../../internal/converter/string-converter';
+import { stringConverter } from '@lookwe/lit-converters';
+import {
+	getFocusElement,
+	getFormValue,
+	mixinDelegatesFocus,
+	mixinElementInternals,
+	mixinFormAssociated,
+	mixinPopoverTarget,
+} from '@lookwe/lit-mixins';
+
 import { addActivationListener } from '../../../internal/event/form-label-activation';
 import { LuiElement } from '../../../internal/lui-element';
-import { getFocusElement, mixinDelegatesFocus } from '../../../internal/mixin/delegate-focus';
-import { mixinElementInternals } from '../../../internal/mixin/element-internals';
-import { getFormValue, mixinFormAssociated } from '../../../internal/mixin/form-associated';
-import { mixinPopoverTarget } from '../../../internal/mixin/popover-target';
 import { FormSubmitterController } from './controller/form-submitter-controller';
 
 declare global {

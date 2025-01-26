@@ -1,10 +1,10 @@
 import { customElement } from 'lit/decorators.js';
 
+import { nextMacrotask } from '@lookwe/utils';
 import { elementUpdated, expect, fixture, html } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
 
-import { nextMacrotask } from '../../../internal/utils/event-loop';
 import { Button } from './button';
 
 @customElement('test-button')
