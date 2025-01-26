@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use '../../../tokens/component.scss';
+
+$tag: 'intersection';
+
+$tokens-to-sys: ();
+
+$tokens-default: ();
+
+@function var($token) {
+	$default: map.get($tokens-default, $token);
+	@if not $default {
+		$default: '';
+	}
+	@return component.get($tag, $token, map.get($tokens-to-sys, $token), $default);
+}
