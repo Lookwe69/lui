@@ -13,7 +13,7 @@
 		"lit"
 	],
 	"author": "Lookwe",
-	"version": "0.0.0",
+	"version": "0.0.0-development",
 	"type": "module",
 	"scripts": {
 		"build": "rollup --config rollup-dist.config.js",
@@ -41,7 +41,8 @@
 		"make-react": "node ./scripts/make-react.js --customElements dist/custom-elements.json",
 		"make-react:prepack": "node ./scripts/make-react.js --customElements ./custom-elements.json",
 		"prepare-pack": "npm run clean && npm run make-metadata:prepack && npm run make-react:prepack && npm run build:prepack",
-		"prepack": "npm run prepare-pack"
+		"prepack": "npm run prepare-pack",
+		"semantic-release": "semantic-release"
 	},
 	"files": [
 		"components",
@@ -62,6 +63,9 @@
 		"./components/*": "./components/*",
 		"./components/*/internal/*": null,
 		"./react/*": "./react/*"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"dependencies": {
 		"@lit/react": "^1.0.7",
@@ -97,6 +101,7 @@
 		"rollup-plugin-postcss": "^4.0.2",
 		"rollup-plugin-postcss-lit": "^2.1.0",
 		"sass": "^1.83.4",
+		"semantic-release": "^24.2.1",
 		"sinon": "^19.0.2",
 		"ts-lit-plugin": "^2.0.2",
 		"typescript": "^5.7.3",
