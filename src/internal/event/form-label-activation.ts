@@ -1,4 +1,4 @@
-import { nextMicrotask } from '../utils/event-loop';
+import { nextMicrotask } from '@lookwe/utils';
 
 export function isActivationClick(event: Event) {
 	// Event must start at the event target.
