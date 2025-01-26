@@ -1,12 +1,25 @@
 {
 	"name": "@lookwe/lui",
 	"description": "Lookwe UI web components",
+	"homepage": "https://github.com/Lookwe69/lui",
+	"bugs": {
+		"url": "https://github.com/Lookwe69/lui/issues"
+	},
+	"keywords": [
+		"lui",
+		"web-components",
+		"lit-element",
+		"typescript",
+		"lit"
+	],
+	"author": "Lookwe",
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
 		"build": "rollup --config rollup-dist.config.js",
 		"build:watch": "npm run build -- --watch",
-		"clean": "rm -rf dist",
+		"build:prepack": "rollup --config rollup-prepack.config.js",
+		"clean": "rm -rf dist && rm -rf coverage && rm -rf src/react && rm -rf components && rm -rf internal && rm -rf react && rm -f custom-elements.json && rm -f vscode.html-custom-data.json && rm -f web-types.json",
 		"lint": "npm run lint:lit-analyzer && npm run lint:eslint && npm run lint:ts",
 		"lint:eslint": "eslint 'src/**/*.ts'",
 		"lint:lit-analyzer": "lit-analyzer",
@@ -24,16 +37,32 @@
 		"create": "plop --plopfile scripts/plop/create.js",
 		"create-variant": "plop --plopfile scripts/plop/create-variant.js",
 		"make-metadata": "node ./scripts/make-metadata.js --outdir dist",
-		"make-react": "node ./scripts/make-react.js --customElements dist/custom-elements.json"
+		"make-metadata:prepack": "node ./scripts/make-metadata.js --outdir ./",
+		"make-react": "node ./scripts/make-react.js --customElements dist/custom-elements.json",
+		"make-react:prepack": "node ./scripts/make-react.js --customElements ./custom-elements.json",
+		"prepare-pack": "npm run clean && npm run make-metadata:prepack && npm run make-react:prepack && npm run build:prepack",
+		"prepack": "npm run prepare-pack"
 	},
-	"keywords": [
-		"lui",
-		"web-components",
-		"lit-element",
-		"typescript",
-		"lit"
+	"files": [
+		"components",
+		"internal",
+		"react",
+		"tokens",
+		"custom-elements.json",
+		"vscode.html-custom-data.json",
+		"web-types.json"
 	],
-	"author": "Lookwe",
+	"main": "components/all.js",
+	"module": "components/all.js",
+	"types": "components/all.d.ts",
+	"customElements": "custom-elements.json",
+	"web-types": "web-types.json",
+	"exports": {
+		"./custom-elements.json": "./custom-elements.json",
+		"./components/*": "./components/*",
+		"./components/*/internal/*": null,
+		"./react/*": "./react/*"
+	},
 	"dependencies": {
 		"@lit/react": "^1.0.7",
 		"lit": "^3.2.1",
