@@ -2,6 +2,7 @@ import { html, nothing } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
+import { SlotController } from '@lookwe/lit-controllers';
 import { stringConverter } from '@lookwe/lit-converters';
 import {
 	getFocusElement,
@@ -75,6 +76,8 @@ export class Button extends BaseClass {
 		return !this.disabled;
 	}
 
+	#slotController = new SlotController(this);
+
 	#_formSubmitterController = new FormSubmitterController(this);
 
 	constructor() {
@@ -136,16 +139,11 @@ export class Button extends BaseClass {
 
 		return html`
 			${this.trailingIcon ? nothing : slotIcon}
-			<span class="label" ?hidden=${!this.#hasLabel}>
-				<slot @slotchange=${this.#handleSlotChange}></slot>
+			<span class="label" ?hidden=${!this.#slotController.hasAssignedNodes()}>
+				<slot></slot>
 			</span>
 			${this.trailingIcon ? slotIcon : nothing}
 		`;
-	}
-
-	#handleSlotChange(event: Event) {
-		const slot = event.target as HTMLSlotElement;
-		this.#hasLabel = slot.assignedNodes().length > 0;
 	}
 
 	override [getFormValue]() {
