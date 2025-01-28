@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:map';
+@use './vars.scss' as vars;
 
 $sys-tokens: (
 	//palette
@@ -121,5 +122,5 @@ $sys-tokens: (
 		$default: map.get($sys-tokens, $sys-token);
 	}
 
-	@return var(#{'--lui-sys-' + $sys-token}, #{$default});
+	@return var(#{'--' + vars.$lib-prefix + 'sys-' + $sys-token}, #{$default});
 }
