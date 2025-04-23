@@ -79,7 +79,7 @@
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.4",
-		"@homer0/prettier-plugin-jsdoc": "^9.1.0",
+		"@homer0/prettier-plugin-jsdoc": "^10.0.0",
 		"@ianvs/prettier-plugin-sort-imports": "^4.4.1",
 		"@literals/rollup-plugin-html-css-minifier": "^3.0.1",
 		"@open-wc/testing": "^4.0.0",
