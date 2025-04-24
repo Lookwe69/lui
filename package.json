@@ -96,7 +96,7 @@
 		"custom-element-jet-brains-integration": "^1.7.0",
 		"custom-element-vs-code-integration": "^1.5.0",
 		"eslint": "^9.25.1",
-		"globals": "^15.15.0",
+		"globals": "^16.0.0",
 		"lit-analyzer": "^2.0.3",
 		"plop": "^4.0.1",
 		"postcss": "^8.5.3",
