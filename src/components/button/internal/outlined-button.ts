@@ -1,4 +1,4 @@
-import { Button } from './button';
+import { Button } from './button.js';
 
 declare global {
 	interface HTMLElementEventMap {}

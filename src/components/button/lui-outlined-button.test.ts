@@ -1,9 +1,9 @@
-import './lui-outlined-button';
+import './lui-outlined-button.js';
 
 import { expect, fixture, html } from '@open-wc/testing';
 
-import { createTokenTests } from '../../testing/tokens';
-import { LuiOutlinedButton } from './lui-outlined-button';
+import { createTokenTests } from '../../testing/tokens.js';
+import { LuiOutlinedButton } from './lui-outlined-button.js';
 
 describe('<lui-outlined-button>', () => {
 	describe('.styles', () => {

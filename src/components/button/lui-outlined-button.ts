@@ -1,6 +1,6 @@
 import { CSSResultOrNative } from 'lit';
 
-import { OutlinedButton } from './internal/outlined-button';
+import { OutlinedButton } from './internal/outlined-button.js';
 import styles from './internal/outlined-button.styles.scss';
 
 declare global {

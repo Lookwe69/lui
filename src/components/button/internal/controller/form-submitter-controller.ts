@@ -1,7 +1,7 @@
 import { ReactiveController, ReactiveControllerHost } from 'lit';
 
-import { internals, WithElementInternals } from '@lookwe/lit-mixins';
-import { nextMacrotask } from '@lookwe/utils';
+import { internals, WithElementInternals } from '@lookwe/lit-mixins/element-internals';
+import { nextMacrotask } from '@lookwe/utils/event-loop';
 
 export interface FormSubmitterControllerHost extends HTMLElement, ReactiveControllerHost, WithElementInternals {
 	type: 'button' | 'reset' | 'submit';
@@ -19,7 +19,7 @@ export class FormSubmitterController implements ReactiveController {
 		(this.#host = host).addController(this);
 	}
 
-	#clearController?: AbortController;
+	#clearController: AbortController | undefined;
 
 	hostConnected(): void {
 		this.#clearController ??= new AbortController();

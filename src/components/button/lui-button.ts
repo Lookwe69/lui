@@ -1,6 +1,6 @@
 import { CSSResultOrNative } from 'lit';
 
-import { Button } from './internal/button';
+import { Button } from './internal/button.js';
 import styles from './internal/button.styles.scss';
 
 declare global {

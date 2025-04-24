@@ -1,9 +1,9 @@
-import './lui-intersection';
+import './lui-intersection.js';
 
 import { expect, fixture, html } from '@open-wc/testing';
 
-import { createTokenTests } from '../../testing/tokens';
-import { LuiIntersection } from './lui-intersection';
+import { createTokenTests } from '../../testing/tokens.js';
+import { LuiIntersection } from './lui-intersection.js';
 
 describe('<lui-intersection>', () => {
 	describe('.styles', () => {

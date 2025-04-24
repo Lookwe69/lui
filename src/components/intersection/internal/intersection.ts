@@ -2,12 +2,11 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { IntersectionController } from '@lit-labs/observers/intersection-controller.js';
 
-import { effect, EffectGroupController } from '@lookwe/lit-controllers';
-import { stringConverter } from '@lookwe/lit-converters';
-import { internals, mixinElementInternals } from '@lookwe/lit-mixins';
+import { effect, EffectGroupController } from '@lookwe/lit-controllers/effect-group';
 
-import { LuiElement } from '../../../internal/lui-element';
-import { IntersectionIntersectingChangeEvent } from '../event/intersection-intersecting-change-event';
+import { LuiElement } from '../../../internal/lui-element.js';
+import { IntersectionIntersectingChangeEvent } from '../event/intersection-intersecting-change-event.js';
+import { mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
 
 declare global {
 	interface HTMLElementEventMap {
@@ -24,7 +23,7 @@ export class Intersection extends BaseClass {
 	/**
 	 * The ID of the element to use as the intersection root.
 	 */
-	@property({ reflect: true, attribute: 'root-id', converter: stringConverter })
+	@property({ reflect: true, attribute: 'root-id', useDefault: true })
 	accessor rootId = '';
 
 	#root: IntersectionObserverInit['root'];

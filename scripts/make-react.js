@@ -5,7 +5,7 @@ import commandLineArgs from 'command-line-args';
 import { deleteSync } from 'del';
 import prettier from 'prettier';
 
-import { default as prettierConfig } from '../.prettierrc.cjs';
+import prettierConfig from '../prettier.config.js';
 import { getAllComponents } from './shared.js';
 
 const { customElements } = commandLineArgs({ name: 'customElements', type: String });
@@ -79,9 +79,9 @@ for (const component of components) {
 		`
 		import * as React from 'react';
 		import { createComponent } from '@lit/react';
-		import { ${className} as Component } from '../${importPath}';
+		import { ${className} as Component } from '../${importPath}.js';
 
-		export { ${className} as ${className}Element } from '../${importPath}';
+		export { ${className} as ${className}Element } from '../${importPath}.js';
 
 		${eventNameImport}
 		${eventImports}
@@ -102,7 +102,7 @@ for (const component of components) {
 		{ ...prettierConfig, parser: 'typescript' },
 	);
 
-	index.push(`export * from './${className}';`);
+	index.push(`export * from './${className}.js';`);
 
 	fs.writeFileSync(path.join(reactDir, `${className}.ts`), source, 'utf8');
 }

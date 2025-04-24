@@ -1,6 +1,6 @@
 import { CSSResultOrNative } from 'lit';
 
-import { Intersection } from './internal/intersection';
+import { Intersection } from './internal/intersection.js';
 import styles from './internal/intersection.styles.scss';
 
 declare global {
