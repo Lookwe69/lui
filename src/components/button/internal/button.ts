@@ -3,20 +3,20 @@ import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import { SlotController } from '@lookwe/lit-controllers/slot';
+import { getFocusElement, mixinDelegatesFocus } from '@lookwe/lit-mixins/delegate-focus';
+import { mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
+import { getFormValue, mixinFormAssociated } from '@lookwe/lit-mixins/form-associated';
+import { mixinPopoverTarget } from '@lookwe/lit-mixins/popover-target';
 
 import { addActivationListener } from '../../../internal/event/form-label-activation.js';
 import { LuiElement } from '../../../internal/lui-element.js';
 import { FormSubmitterController } from './controller/form-submitter-controller.js';
-import { mixinPopoverTarget } from '@lookwe/lit-mixins/popover-target';
-import { getFocusElement, mixinDelegatesFocus } from '@lookwe/lit-mixins/delegate-focus';
-import { getFormValue, mixinFormAssociated } from '@lookwe/lit-mixins/form-associated';
-import { mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
 
 declare global {
 	interface HTMLElementEventMap {}
 }
 
-const BaseClass = mixinElementInternals(LuiElement);
+const BaseClass = mixinPopoverTarget(mixinDelegatesFocus(mixinFormAssociated(mixinElementInternals(LuiElement))));
 
 export class Button extends BaseClass {
 	/**

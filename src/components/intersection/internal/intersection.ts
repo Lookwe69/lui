@@ -3,10 +3,10 @@ import { property } from 'lit/decorators.js';
 import { IntersectionController } from '@lit-labs/observers/intersection-controller.js';
 
 import { effect, EffectGroupController } from '@lookwe/lit-controllers/effect-group';
+import { internals, mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
 
 import { LuiElement } from '../../../internal/lui-element.js';
 import { IntersectionIntersectingChangeEvent } from '../event/intersection-intersecting-change-event.js';
-import { mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
 
 declare global {
 	interface HTMLElementEventMap {
