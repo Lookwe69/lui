@@ -1,9 +1,9 @@
-import './lui-divider';
+import './lui-divider.js';
 
 import { expect, fixture, html } from '@open-wc/testing';
 
-import { createTokenTests } from '../../testing/tokens';
-import { LuiDivider } from './lui-divider';
+import { createTokenTests } from '../../testing/tokens.js';
+import { LuiDivider } from './lui-divider.js';
 
 describe('<lui-divider>', () => {
 	describe('.styles', () => {

@@ -1,9 +1,9 @@
 import { property } from 'lit/decorators.js';
 
-import { effect, EffectGroupController } from '@lookwe/lit-controllers';
-import { internals, mixinElementInternals } from '@lookwe/lit-mixins';
+import { effect, EffectGroupController } from '@lookwe/lit-controllers/effect-group';
+import { internals, mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
 
-import { LuiElement } from '../../../internal/lui-element';
+import { LuiElement } from '../../../internal/lui-element.js';
 
 declare global {
 	interface HTMLElementEventMap {}

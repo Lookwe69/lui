@@ -1,11 +1,11 @@
 import { customElement } from 'lit/decorators.js';
 
-import { nextMacrotask } from '@lookwe/utils';
+import { nextMacrotask } from '@lookwe/utils/event-loop';
 import { elementUpdated, expect, fixture, html } from '@open-wc/testing';
 import { sendKeys } from '@web/test-runner-commands';
 import sinon from 'sinon';
 
-import { Button } from './button';
+import { Button } from './button.js';
 
 @customElement('test-button')
 class TestButton extends Button {}

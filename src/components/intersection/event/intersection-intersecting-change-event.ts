@@ -1,4 +1,4 @@
-import { StateEvent } from '../../../internal/event/state-event';
+import { StateEvent } from '../../../internal/event/state-event.js';
 
 export class IntersectionIntersectingChangeEvent extends StateEvent<{
 	oldSate: boolean | undefined;
