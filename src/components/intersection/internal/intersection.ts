@@ -4,6 +4,7 @@ import { IntersectionController } from '@lit-labs/observers/intersection-control
 
 import { effect, EffectGroupController } from '@lookwe/lit-controllers/effect-group';
 import { internals, mixinElementInternals } from '@lookwe/lit-mixins/element-internals';
+import { omitUndefined } from '@lookwe/omit-undefined';
 
 import { LuiElement } from '../../../internal/lui-element.js';
 import { IntersectionIntersectingChangeEvent } from '../event/intersection-intersecting-change-event.js';
@@ -70,7 +71,7 @@ export class Intersection extends BaseClass {
 
 	#getNewController() {
 		return new IntersectionController(this, {
-			config: { root: this.root, rootMargin: this.rootMargin, threshold: this.threshold },
+			config: omitUndefined({ root: this.root, rootMargin: this.rootMargin, threshold: this.threshold }),
 			callback: this.#handleIntersectionCallback.bind(this),
 		});
 	}

@@ -1,7 +1,6 @@
 {
 	"extends": "@tsconfig/strictest/tsconfig.json",
 	"compilerOptions": {
-		"exactOptionalPropertyTypes": false,
 		"noUnusedLocals": false,
 
 		"target": "ES2021",
