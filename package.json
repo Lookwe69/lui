@@ -108,7 +108,7 @@
 		"rollup-plugin-postcss-lit": "^2.2.0",
 		"sass": "^1.87.0",
 		"semantic-release": "^24.2.3",
-		"sinon": "^20.0.0",
+		"sinon": "^21.0.0",
 		"ts-lit-plugin": "^2.0.2",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.31.0"
