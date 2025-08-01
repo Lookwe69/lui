@@ -110,7 +110,7 @@
 		"semantic-release": "^24.2.7",
 		"sinon": "^21.0.0",
 		"ts-lit-plugin": "^2.0.2",
-		"typescript": "^5.8.3",
+		"typescript": "^5.9.2",
 		"typescript-eslint": "^8.38.0"
 	}
 }
